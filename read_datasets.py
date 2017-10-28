@@ -18,3 +18,18 @@ project_submissions = read_cvs(submissions_filename)
 print enrollments[0]
 print daily_engagement[0]
 print project_submissions[0]
+
+
+def count_unique_students(file):
+    response = set()
+    for record in file:
+        try:
+            response.add(file['account_key'])
+        except:
+            response.add(file['acct'])
+    return response
+
+
+print "Starting student counter"
+enrollmentStudentNumber = count_unique_students(enrollments)
+print len(enrollmentStudentNumber)
